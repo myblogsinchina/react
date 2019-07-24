@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.button-div{
+				width: 8em;
+				height: 3em;
+				margin: 0 auto;
+			}
+			.loading-button{
+				width: 8em;
+				height: 3em;
+				
+				background-color: #3B92F5;
+				box-shadow: -4px 3px 1px gainsboro;
+			}
+			.loading-button span{
+				display: block;
+				text-align: center;
+			}
+			.loading-button p{
+				display: inline-block;
+				color: white;
+				-ms-user-select: none;
+				-webkit-user-select: none;
+				vertical-align: middle;
+			}
+			.loading-button:hover{
+				position: relative;
+				width: 8em;
+				height: 3em;
+				left: -4px;
+				top: 3px;
+				margin: 0 auto;
+				background-color: #0A7AFA;
+				box-shadow: 0px 0px 1px gainsboro;
+			}
+			.loading-slide{
+				position: relative;
+				top: 13em;
+				width: 20em;
+				height: 1em;
+				margin: 0 auto;
+				background-color: #fff ;
+	
+			
+				
+				
+			}
+			.loading{
+				position: absolute;
+				width: 0em;
+				height: .5em;
+				
+				animation: loading 1s 0;
+				animation-play-state: paused;
+				
+			}
+			@keyframes loading{
+				from{
+					width: 0em;
+					background-color: hsla(0,0,0,1);
+				
+				}
+				to{
+					width: 20em;
+					background-color: #0A7AFA;
+				}
+			}
+			.vol-box{
+				position: relative;
+				width: 10em;
+				height: 1em;
+				border: 1px solid #000;
+				border-radius: 999em;
+			
+			}
+			.vol-slide{
+				position: absolute;
+				width: 4em;
+				height: 1em;
+				max-width: 100%;
+				background-color: #0A7AFA;
+				border-radius: 999em;
+			}
+			.vol-button{
+				width: 1em;
+				height: 1em;
+				border-radius:999em;
+				background-color: #FFFFFF;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="button-div">
+			<button class="loading-button" id="loading-button">
+				click
+			</button>
+		</div>
+		
+		<div class="loading-slide" id="loading-slide">
+			<div class="loading" id="loading">
+				
+			</div>
+		</div>
+		<div class="vol-box" id="vol-box">
+			<div class="vol-slide" id="vol-slide">
+				<div class="vol-button" draggable="true">
+					
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		var slide = document.getElementById("loading");
+		var button = document.getElementById("loading-button");
+		var volBox = document.getElementById("vol-box");
+		volBox.addEventListener("click",function(event){
+			console.log(event.clientX);
+			document.getElementById("vol-slide").style.width=event.clientX-7+"px";
+		},false);
+		
+			
+		button.addEventListener("click",function(){
+			console.log("233");
+			slide.style.animationPlayState="running";
+			slide.style.animation="loading 1s 1";
+		},false);
+	</script>
+</html>
